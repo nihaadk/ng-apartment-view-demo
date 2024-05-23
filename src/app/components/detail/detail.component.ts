@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, input } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ApartmentService } from '../../service/apartment.service';
 import { Observable } from 'rxjs';
@@ -13,13 +13,14 @@ import { AsyncPipe, NgIf } from '@angular/common';
   styleUrl: './detail.component.css',
 })
 export class DetailComponent implements OnInit {
-  private readonly activatedRouter = inject(ActivatedRoute);
+  id = input<string>();
+
   private readonly apartmentService = inject(ApartmentService);
 
   currentApartment$!: Observable<IApartment>;
 
   ngOnInit(): void {
-    const id = Number(this.activatedRouter.snapshot.paramMap.get('id'));
+    const id = Number(this.id());
     if (id) {
       this.currentApartment$ = this.apartmentService.getCurrentApartment(id);
     }
