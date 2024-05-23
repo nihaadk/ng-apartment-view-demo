@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img [src]="imageUrl()" [alt]="description()" />
+    </figure>
+  </div>
+  <div class="card-content">
+    <p class="title is-4">{{ title() }}</p>
+    <p>{{ description() }}</p>
+    <p>
+      <a [routerLink]="['/detail', id()]">Show more</a>
+    </p>
+  </div>
+</div>

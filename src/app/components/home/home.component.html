@@ -1,0 +1,16 @@
+<section class="mt-5">
+  <app-search (searchTerm)="this.searchTerm = $event" />
+  <div class="columns p-5">
+    @for(apartment of apartments$ | async | apartmentFilter : searchTerm; track
+    $index ) {
+    <div class="column is-one-quarter">
+      <app-card
+        [id]="apartment.id"
+        [title]="apartment.title"
+        [description]="apartment.description"
+        [imageUrl]="apartment.imageUrl"
+      />
+    </div>
+    }
+  </div>
+</section>

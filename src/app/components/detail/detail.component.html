@@ -1,0 +1,21 @@
+<div *ngIf="currentApartment$ | async as apartment">
+  <section class="section">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <div class="content is-medium">
+          <h1 class="title">Title: {{ apartment?.title }}</h1>
+          <figure class="image is-16by9">
+            <img [src]="apartment?.imageUrl" alt="" />
+          </figure>
+          <p>Description: {{ apartment?.description }}</p>
+          <p>Rooms: {{ apartment?.rooms }}</p>
+          <p>Area: {{ apartment?.area }} m2</p>
+          <p>Rent Price: {{ apartment?.rent }} $</p>
+          <button class="button is-primary" [routerLink]="['/home']">
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
